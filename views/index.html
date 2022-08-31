@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Commerce Project</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="header">
-      <a href="/home" class="anchor">HOME</a>
-      <a href="/" class="anchor">STORE</a>
-      <a href="/about" class="anchor">ABOUT</a>
+      <a href="./homepage.html" class="anchor">HOME</a>
+      <a href="./index.html" class="anchor">STORE</a>
+      <a href="./about.html" class="anchor">ABOUT</a>
       <button class="seecart" id="mycart">Cart</button>
     </div>
     <div class="subHeader">
@@ -20,86 +21,10 @@
     </div>
     <div>
       <h3 class="bike">Sports Bikes</h3>
-      <div class="row1">
-        <div class="albums">
-          <h3 class="title">Yamaha R15 V4</h3>
-          <img
-            class="images"
-            src="https://th.bing.com/th/id/OIP.obPrQvrV2rUbbBqFTSNP8gHaFG?w=254&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-            alt="Yamaha R15 V4"
-          />
-          <div class="price">
-            <h4 class="amount">250$</h4>
-            <button class="addcart">Add to Cart</button>
-          </div>
-        </div>
-        <div class="albums">
-          <h3 class="title">Suzuki Hayabusa</h3>
-          <img
-            class="images"
-            src="https://www.bing.com/th?id=OIP.UA2O7TQzEBSchGJFaV39UgHaEj&w=201&h=130&c=2&rs=1&qlt=80&o=6&cdv=1&dpr=1.25&pid=16.1"
-            alt="Album 2"
-          />
-          <div class="price">
-            <h4 class="amount">300$</h4>
-            <button class="addcart">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="row1">
-        <div class="albums">
-          <h3 class="title">Kawasaki Ninja 1000SX</h3>
-          <img
-            class="images"
-            src="https://th.bing.com/th/id/OIP.Xp73l3OyHqfkp9af5mAF6gHaFj?w=287&h=216&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-            alt="Kawasaki Ninja 1000SX"
-          />
-          <div class="price">
-            <h4 class="amount">350$</h4>
-            <button class="addcart">Add to Cart</button>
-          </div>
-        </div>
-        <div class="albums">
-          <h3 class="title">Honda CBR 1000RR</h3>
-          <img
-            class="images"
-            src="https://th.bing.com/th/id/OIP.f9yCKEyEaiOTqX_ly1J_TgHaEH?w=331&h=184&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-            alt="Honda CBR 1000RR"
-          />
-          <div class="price">
-            <h4 class="amount">275$</h4>
-            <button class="addcart">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3 class="bike">Adventure Bikes</h3>
-        <div class="row1">
-          <div class="albums">
-            <h3 class="title">RE Himalayan</h3>
-            <img
-              class="images"
-              src="https://th.bing.com/th/id/OIP.qzd4e1jsKH2QguLDG0XlpQHaE7?w=275&h=183&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-              alt="RE Himalayan"
-            />
-            <div class="price">
-              <h4 class="amount">100$</h4>
-              <button class="addcart">Add to Cart</button>
-            </div>
-          </div>
-          <div class="albums">
-            <h3 class="title">Triumph Tiger</h3>
-            <img
-              class="images"
-              src="https://th.bing.com/th/id/OIP.RqbL50ANRxfadqgCIDZqmAHaFj?w=270&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-              alt="Triumph Tiger"
-            />
-            <div class="price">
-              <h4 class="amount">400$</h4>
-              <button class="addcart">Add to Cart</button>
-            </div>
-          </div>
-        </div>
+      <div class="row1" id="products">
+        
+         </div> 
+      
       </div>
     </div>
     <div class="cart">
