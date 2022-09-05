@@ -88,12 +88,12 @@ function addtocart(productId) {
  let albums = document.querySelectorAll('.albums')
 
 
- for(let i=0;i<albums.length;i++) {
- if(productId == albums[i].querySelector('#hidden').value)
- {
-  return alert('Product Already Exists')
- }
- } 
+//  for(let i=0;i<albums.length;i++) {
+//  if(productId == albums[i].querySelector('#hidden').value)
+//  {
+//   return alert('Product Already Exists')
+//  }
+//  } 
   axios
     .post("http://localhost:3000/cart", { productId: productId })
     .then((response) => {
@@ -150,6 +150,7 @@ function showingCart() {
        
         updateCartTotal();
         qtyChanged()
+        removeItem()
       } else {
         throw new Error("Something went wrong");
       }
@@ -174,7 +175,7 @@ function removeItem(productId) {
 
 function qtyChanged() {
   let qtyval = document.getElementsByClassName("cart-quantity-input");
-  console.log(qtyval)
+  // console.log(qtyval)
   for (let i = 0; i < qtyval.length; i++) {
     let qty = qtyval[i];
     qty.addEventListener("change", quantityChanges);
@@ -233,3 +234,24 @@ function showcart() {
 close.addEventListener("click", () => {
   container.classList.remove("active");
 });
+
+
+// Purchase Button
+
+let purchasebtn =  document.getElementById('purchasebtn')
+
+purchasebtn.addEventListener('click',()=>{
+axios.post('http://localhost:3000/Order',{cartId:1})
+.then(response=>console.log(response))
+})
+
+// see the orders
+
+let orderbtn = document.getElementById('ordersbtn')
+
+orderbtn.addEventListener('click',()=>{
+  axios.get('http://localhost:3000/Order')
+  .then(orders=>{
+    console.log(orders)
+  })
+})

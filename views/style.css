@@ -110,11 +110,11 @@
   }
 
   #mycart {
-    left: 300px;
+    left: 600px;
     position: relative;
-    height: 20px;
+    height: 30px;
     border: 2px solid white;
-  }
+    }
 
   .images {
     height: 250px;
