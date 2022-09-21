@@ -11,10 +11,15 @@
   </head>
   <body>
     <div class="header">
-      <a href="./homepage.html" class="anchor">HOME</a>
-      <a href="./index.html" class="anchor">STORE</a>
-      <a href="./about.html" class="anchor">ABOUT</a>
-      <button class="seecart" id="mycart">Cart</button>
+      <div class="minHeader">
+        <a href="./homepage.html" class="anchor">HOME</a>
+        <a href="./index.html" class="anchor">STORE</a>
+        <a href="./about.html" class="anchor">ABOUT</a>
+        <a href="./order.html" class="anchor" id="orderbtn">ORDERS</a>
+        <button class="seecart" id="mycart">Cart</button>
+      </div>
+     
+      
     </div>
     <div class="subHeader">
       <h1>The Biker Zone</h1>
@@ -46,6 +51,7 @@
             <span class="cart-item cart-header cart-column">ITEM</span>
             <span class="cart-price cart-header cart-column">PRICE</span>
             <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            
              </div>
              <hr style="font-weight: bold;color:black">
           <div class="cart-items">
@@ -59,22 +65,17 @@
            <button class="btn btn-primary btn-purchase" type="button" id="purchasebtn">
             PURCHASE
           </button> 
-          <button class="btn" type="button" id="ordersbtn">
-            See Orders
-          </button> 
+          
         </section>
       </div>
     </div>
     <br />
 
-    <!-- Notification -->
-    <div id='container'>
-
-    </div>
+    
     <!-- footer -->
     
     <div class="footer">
-      <div class="footer1"><h1>The Biker Zone</h1></div>
+      <div class="footer1"><h4 id="copyright">©Copyright 2022, The Biker Zone | All Rights Reserved</h4></div>
       <div class="footer2">
         <ul class="footer2">
           <a href="https://www.youtube.com">

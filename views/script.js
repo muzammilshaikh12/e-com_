@@ -5,12 +5,14 @@ let pag = document.getElementById('pagination');
 // Show products on front end
 
 window.addEventListener("DOMContentLoaded", () => {
-  axios.get("http://localhost:3000/limited?page=0").then((productInfo) => {
+  axios.get("http://localhost:3000/limited?page=0")
+  .then((productInfo) => {
+    console.log(productInfo)
     if (productInfo.request.status === 200) {
       let products = productInfo.data.products;
       let childHTML = "";
       let parent = document.getElementById("products");
-      // console.log(products,parent)
+    
       products.forEach((product) => {
          childHTML += ` <div class="albums">
                 <input type="hidden" id="hidden" value="${product.id}">
@@ -30,9 +32,12 @@ window.addEventListener("DOMContentLoaded", () => {
         });
         parent.innerHTML = childHTML;
     }
-  });
+  })
+  .catch(err=> notifyusers(err))
   showingCart();
   pagination()
+  
+ 
 });
 
 function pagination(e) {
@@ -49,7 +54,7 @@ function pagination(e) {
       pag.innerHTML += `<button class="pagebtn" id="?page=${c++}">${cc++}</button> `;
     }
   })
-  .catch(err=>console.log(err))
+  .catch(err=> notifyusers(err))
 }
 
 pag.addEventListener('click', (e)=>{
@@ -81,7 +86,7 @@ pag.addEventListener('click', (e)=>{
       });
       parent.innerHTML = childHTML;
   })
-  .catch(err=>console.log(err))
+  .catch(err=> notifyusers(err))
 })
 
 function addtocart(productId) {
@@ -150,7 +155,7 @@ function showingCart() {
        
         updateCartTotal();
         qtyChanged()
-        removeItem()
+        
       } else {
         throw new Error("Something went wrong");
       }
@@ -168,7 +173,7 @@ function removeItem(productId) {
   // console.log(productId)
  axios.delete(`http://localhost:3000/cart-delete-item/${productId}`)
  .then(response=>{
-  console.log(response)
+  showingCart()
   updateCartTotal()
  })
 }
@@ -242,16 +247,13 @@ let purchasebtn =  document.getElementById('purchasebtn')
 
 purchasebtn.addEventListener('click',()=>{
 axios.post('http://localhost:3000/Order',{cartId:1})
-.then(response=>console.log(response))
+.then(response=>{
+  let orderId=response.data.data[0][0].orderId
+  alert(`Your Order has been successfully placed with order Id ${orderId}, Thanks for Shopping from The Biker Zone`)
+  showingCart()
+  updateCartTotal()
+})
 })
 
-// see the orders
 
-let orderbtn = document.getElementById('ordersbtn')
 
-orderbtn.addEventListener('click',()=>{
-  axios.get('http://localhost:3000/Order')
-  .then(orders=>{
-    console.log(orders)
-  })
-})
